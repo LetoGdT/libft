@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 17:32:19 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 10:27:59 by lgaudet-         ###   ########lyon.fr   */
+/*   Created: 2020/11/24 10:46:48 by lgaudet-          #+#    #+#             */
+/*   Updated: 2020/11/24 10:54:32 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*strnstr(const char *haystack, const char *needle, size_t len)
+char	*strdup(const char *str)
 {
-	int		i;
-	int		j;
+	char	*res;
+	size_t	size;
+	size_t	i;
 
+	size = 0;
+	while (str[size])
+		size++;
+	if ((res = (char *)malloc(sizeof(char) * size)) == NULL)
+		return (NULL);
 	i = 0;
-	j = 0;
-	while (haystack[i] && i < len)
+	while (i < size)
 	{
-		while (haystack[i + j] == needle[j] && needle[j])
-			j++;
-		if (needle[j] == '\0')
-			return (char*)(haystack + i);
-		else
-			j = 0;
+		res[i] = str[i];
 		i++;
 	}
-	return (NULL);
+	res[i] = '\0';
+	return (res);
 }
