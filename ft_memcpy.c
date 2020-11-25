@@ -6,16 +6,18 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:18:52 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:18:56 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 19:32:23 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	int i;
+	size_t	i;
 
+	if (dest == NULL && src == NULL)
+		return (dest);
 	i = 0;
 	while (i < size)
 	{

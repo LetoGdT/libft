@@ -6,11 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:19:32 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:19:49 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 18:21:40 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *st)
 {
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *st)
 	size = 0;
 	while (st[size++])
 		;
-	return (size);
+	return (size - 1);
 }

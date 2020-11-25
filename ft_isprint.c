@@ -6,9 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:10:37 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:17:15 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 14:37:00 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

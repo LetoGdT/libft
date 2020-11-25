@@ -6,9 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:28:26 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:16:16 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 14:32:11 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

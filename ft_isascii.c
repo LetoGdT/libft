@@ -6,9 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:30:04 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:15:39 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 14:36:08 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

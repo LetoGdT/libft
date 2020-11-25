@@ -6,9 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:23:59 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 15:26:20 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 14:36:27 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

@@ -6,21 +6,23 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:57:55 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 17:02:40 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 13:52:25 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	const unsigned char	*s;
+	const unsigned char	*d;
 
-	i = 0;
-	while (s1[i] && s2[i] && i < n)
-		i++;
-	if (i < n)
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	d = (const unsigned char *)s1;
+	s = (const unsigned char *)s2;
+	while (*d == *s && *d != '\0' && --n)
+	{
+		d++;
+		s++;
+	}
+	return (*d - *s);
 }

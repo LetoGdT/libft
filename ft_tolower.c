@@ -6,9 +6,11 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:25:56 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:28:30 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/24 14:41:15 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

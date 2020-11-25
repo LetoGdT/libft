@@ -6,22 +6,21 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:29:50 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/23 16:32:36 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/25 13:21:23 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
-	char	*s;
+	const char	*s;
 
-	s = (char*)str;
-	while (s)
-	{
-		if (*s == c)
-			return (s);
-		s++;
-	}
+	s = str - 1;
+	while (*++s)
+		if (*s == (char)c)
+			return (char*)(s);
+	if (*s == (char)c)
+		return (char*)(s);
 	return (NULL);
 }
