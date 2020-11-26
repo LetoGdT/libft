@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:19:32 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 18:21:40 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 23:00:06 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *st)
 	size_t	size;
 
 	size = 0;
-	while (st[size++])
-		;
-	return (size - 1);
+	while (st[size])
+		size++;
+	return (size);
 }

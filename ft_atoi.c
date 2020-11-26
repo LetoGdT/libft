@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:40:56 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 15:24:06 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 22:49:30 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ static int	ft_isspace(char c)
 		|| c == '\f' || c == '\r' || c == ' ')
 		return (1);
 	return (0);
+}
+
+int			result(int neg, size_t i, int res)
+{
+	if (i >= 19)
+	{
+		if (neg == -1)
+			return (0);
+		else
+			return (-1);
+	}
+	return (neg * res);
 }
 
 int			ft_atoi(const char *str)
@@ -43,5 +55,5 @@ int			ft_atoi(const char *str)
 		res += str[i] - '0';
 		i++;
 	}
-	return (neg * res);
+	return (result(neg, i, res));
 }

@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:50:00 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/26 13:51:24 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 22:35:24 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ static char		*strcpy(char const *src, size_t start, size_t end)
 	return (ret);
 }
 
+char			**fail(char **str, int count)
+{
+	while (count--)
+		free(str[count]);
+	free(str);
+	return (NULL);
+}
+
 char			**ft_split(char const *str, char c)
 {
 	char		**ret;
@@ -67,7 +75,7 @@ char			**ft_split(char const *str, char c)
 			if ((str[i] == c || str[i] == '\0'))
 			{
 				if (!(ret[count++] = strcpy(str, start, i)))
-					return (NULL);
+					return (fail(ret, count));
 				start = i;
 			}
 		}
