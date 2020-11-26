@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 16:19:17 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/25 20:51:13 by lgaudet-         ###   ########lyon.fr   */
+/*   Created: 2020/11/25 20:07:09 by lgaudet-          #+#    #+#             */
+/*   Updated: 2020/11/26 12:42:40 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t size)
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char))
 {
-	const unsigned char		*d;
-	const unsigned char		*s;
+	char	*ret;
+	int		i;
 
-	d = (const unsigned char*)ptr1;
-	s = (const unsigned char*)ptr2;
-	while (--size)
-	{
-		d++;
-		s++;
-		if (*d != *s)
-			return (int)(*d - *s);
-	}
-	return (0);
+	if (!(ret = ft_strdup(str)))
+		return (NULL);
+	i = -1;
+	while (ret[++i])
+		ret[i] = (*f)(i, ret[i]);
+	return (ret);
 }
