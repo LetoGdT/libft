@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:40:56 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/26 22:49:30 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 23:19:36 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ static int	ft_isspace(char c)
 
 int			result(int neg, size_t i, int res)
 {
-	if (i >= 19)
-	{
-		if (neg == -1)
-			return (0);
-		else
-			return (-1);
-	}
+	if (i >= 19 && neg == 1)
+		return (-1);
+	if (i >= 20 && neg == -1)
+		return (0);
 	return (neg * res);
 }
 
 int			ft_atoi(const char *str)
 {
-	size_t	i;
-	int		neg;
-	int		res;
+	size_t		i;
+	const char	*s;
+	int			neg;
+	int			res;
 
 	i = 0;
 	while (str[i] && ft_isspace(str[i]))
@@ -49,10 +47,12 @@ int			ft_atoi(const char *str)
 		i++;
 	}
 	res = 0;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	s = str + i;
+	i = 0;
+	while (s[i] && s[i] >= '0' && s[i] <= '9')
 	{
 		res *= 10;
-		res += str[i] - '0';
+		res += s[i] - '0';
 		i++;
 	}
 	return (result(neg, i, res));
