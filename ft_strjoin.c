@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:37:39 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/26 12:42:07 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 18:36:54 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *prefix, char const *suffix)
 	char		*ret;
 	size_t		i;
 
+	if (!prefix || !suffix)
+		return (NULL);
 	if (!(ret = malloc(sizeof(char) *
 		(ft_strlen(prefix) + ft_strlen(suffix) + 1))))
 		return (NULL);

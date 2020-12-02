@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:50:32 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/26 12:53:54 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 18:45:47 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,13 @@ static int	in_char_set(char c, const char *char_set)
 
 char		*ft_strtrim(char const *str, char const *char_set)
 {
-	size_t		start;
-	size_t		end;
-	size_t		i;
+	int			start;
+	int			end;
+	int			i;
 	char		*ret;
 
-	if (!*str)
-	{
-		if (!(ret = malloc(sizeof(char))))
-			return (NULL);
-		*ret = '\0';
-		return (ret);
-	}
+	if (!str || !char_set)
+		return (NULL);
 	start = 0;
 	while (str[start] && in_char_set(str[start], char_set))
 		start++;
