@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:50:00 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/27 14:35:40 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 18:23:19 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static size_t	count_strings(char const *str, char c)
 	size_t		count;
 	size_t		start;
 
+	if (!str || !*str)
+		return (1);
 	i = -1;
 	count = 0;
 	start = 0;
@@ -49,12 +51,32 @@ static char		*strcpy(char const *src, size_t start, size_t end)
 	return (ret);
 }
 
-char			**fail(char **str, int count)
+static char		**fail(char **str, int count)
 {
 	while (count >= 0)
 		free(str[count--]);
 	free(str);
 	return (NULL);
+}
+
+static int		init(char const *str, char c, char ***ret)
+{
+	if (!str || !*str)
+	{
+		if (!(*ret = malloc(sizeof(char*))))
+		{
+			*ret = NULL;
+			return (0);
+		}
+		**ret = NULL;
+		return (0);
+	}
+	if (!(*ret = malloc(sizeof(char*) * count_strings(str, c))))
+	{
+		*ret = NULL;
+		return (0);
+	}
+	return (1);
 }
 
 char			**ft_split(char const *str, char c)
@@ -64,8 +86,8 @@ char			**ft_split(char const *str, char c)
 	size_t		count;
 	size_t		start;
 
-	if (!(ret = malloc(sizeof(char*) * count_strings(str, c))))
-		return (NULL);
+	if (!init(str, c, &ret))
+		return (ret);
 	i = -1;
 	count = 0;
 	start = 0;

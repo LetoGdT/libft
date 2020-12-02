@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 17:32:19 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 15:25:07 by lgaudet-         ###   ########lyon.fr   */
+/*   Created: 2020/12/01 15:34:18 by lgaudet-          #+#    #+#             */
+/*   Updated: 2020/12/01 15:45:57 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	while (haystack[i])
 	{
-		while (haystack[i + j] == needle[j] && needle[j] && i + j < len)
+		while (haystack[i + j] == needle[j] && needle[j] && haystack[i + j]
+			&& i + j < len)
 			j++;
 		if (needle[j] == '\0')
 			return (char*)(haystack + i);
