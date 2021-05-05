@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 14:52:52 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/12/02 20:32:44 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/04 15:59:23 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		len = 0;
 	else if (start + len > ft_strlen(str))
 		len = ft_strlen(str) - start;
-	if (!(res = malloc(sizeof(char) * (len + 1))))
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < len)

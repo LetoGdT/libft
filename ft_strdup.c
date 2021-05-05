@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:46:48 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 15:12:10 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:22:26 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strdup(const char *str)
 	size = 0;
 	while (str[size])
 		size++;
-	if ((res = (char *)malloc(sizeof(char) * (size + 1))) == NULL)
+	res = (char *)malloc(sizeof(char) * (size + 1));
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < size)

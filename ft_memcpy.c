@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:18:52 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 19:32:23 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:30:45 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		((char*)dest)[i] = ((char*)src)[i];
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
 	return (dest);

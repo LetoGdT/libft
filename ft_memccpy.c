@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:20:01 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/30 13:43:31 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 18:46:07 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	*ft_memccpy(void *dest, const void *src, int ch, size_t max_size)
 	s = src;
 	d = dest;
 	while (max_size-- > 0)
-		if ((*d++ = *s++) == (char)ch)
+	{
+		*d++ = *s++;
+		if (*(d - 1) == (unsigned char)ch)
 			return (d);
+	}
 	return (NULL);
 }

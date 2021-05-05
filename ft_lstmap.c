@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 14:09:58 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/30 14:09:59 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:43:35 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst)
 		return (NULL);
-	if (!(ret = ft_lstnew((*f)(lst->content))))
+	ret = ft_lstnew((*f)(lst->content));
+	if (!ret)
 		return (NULL);
 	lst = lst->next;
 	curr = ret;
 	while (lst)
 	{
-		if (!(curr->next = ft_lstnew((*f)(lst->content))))
+		curr->next = ft_lstnew((*f)(lst->content));
+		if (!curr->next)
 		{
 			ft_lstclear(&ret, del);
 			return (NULL);

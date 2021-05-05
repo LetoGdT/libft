@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:24:37 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/12/02 19:57:12 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:43:11 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	malloc_size(int n)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*ret;
 	int		i;
@@ -53,7 +53,8 @@ char		*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (!(ret = malloc(sizeof(char) * malloc_size(n))))
+	ret = malloc(sizeof(char) * malloc_size(n));
+	if (!ret)
 		return (NULL);
 	ret[malloc_size(n) - 1] = '\0';
 	if (n < 0)

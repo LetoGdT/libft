@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:20:31 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 21:18:13 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:30:27 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 
 	if (!dest && !src)
 		return (NULL);
-	d = (char*)dest;
-	s = (const char*)src;
+	d = (char *)dest;
+	s = (const char *)src;
 	if (d < s)
 		while (size--)
 			*d++ = *s++;

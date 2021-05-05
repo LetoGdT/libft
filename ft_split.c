@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:50:00 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/12/02 21:37:58 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:58:45 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static size_t	count_strings(char const *str, char c)
 	count = 0;
 	start = 0;
 	while (++i < ft_strlen(str) + 1)
+	{
 		if (str[start] != c)
 		{
 			if ((str[i] == c || str[i] == '\0'))
@@ -34,15 +35,17 @@ static size_t	count_strings(char const *str, char c)
 		}
 		else
 			start = i;
+	}
 	return (count + 1);
 }
 
-static char		*strcpy_split(char const *src, size_t start, size_t end)
+static char	*strcpy_split(char const *src, size_t start, size_t end)
 {
 	char		*ret;
 	size_t		i;
 
-	if (!(ret = malloc((sizeof(char) * (end - start + 1)))))
+	ret = malloc((sizeof(char) * (end - start + 1)));
+	if (!ret)
 		return (NULL);
 	i = -1;
 	while (++i < end - start)
@@ -51,7 +54,7 @@ static char		*strcpy_split(char const *src, size_t start, size_t end)
 	return (ret);
 }
 
-static char		**fail(char **str, int count)
+static char	**fail(char **str, int count)
 {
 	while (count >= 0)
 		free(str[count--]);
@@ -59,11 +62,13 @@ static char		**fail(char **str, int count)
 	return (NULL);
 }
 
-static int		init(char const *str, char c, char ***ret)
+static int	init(char const *str, char c, char ***ret, size_t *count)
 {
+	*count = 0;
 	if (!str || !*str)
 	{
-		if (!(*ret = malloc(sizeof(char*))))
+		*ret = malloc(sizeof(char *));
+		if (!*ret)
 		{
 			*ret = NULL;
 			return (0);
@@ -71,7 +76,8 @@ static int		init(char const *str, char c, char ***ret)
 		**ret = NULL;
 		return (0);
 	}
-	if (!(*ret = malloc(sizeof(char*) * count_strings(str, c))))
+	*ret = malloc(sizeof(char *) * count_strings(str, c));
+	if (!*ret)
 	{
 		*ret = NULL;
 		return (0);
@@ -79,30 +85,31 @@ static int		init(char const *str, char c, char ***ret)
 	return (1);
 }
 
-char			**ft_split(char const *str, char c)
+char	**ft_split(char const *str, char c)
 {
 	char		**ret;
 	size_t		i;
 	size_t		count;
 	size_t		start;
 
-	if (!init(str, c, &ret))
+	if (!init(str, c, &ret, &count))
 		return (ret);
 	i = -1;
-	count = 0;
 	start = 0;
 	while (++i < ft_strlen(str) + 1)
+	{
 		if (str[start] != c)
 		{
-			if ((str[i] == c || str[i] == '\0'))
-			{
-				if (!(ret[count++] = strcpy_split(str, start, i)))
-					return (fail(ret, (int)count - 1));
-				start = i;
-			}
+			if (!(str[i] == c || str[i] == '\0'))
+				continue ;
+			ret[count] = strcpy_split(str, start, i);
+			if (!ret[count++])
+				return (fail(ret, (int)count - 1));
+			start = i;
 		}
 		else
 			start = i;
+	}
 	ret[count] = NULL;
 	return (ret);
 }

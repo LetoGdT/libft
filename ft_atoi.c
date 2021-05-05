@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:40:56 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/12/02 19:56:42 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:46:31 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-int			result(int neg, size_t i, int res)
+int	result(int neg, size_t i, int res)
 {
 	if (i >= 19 && neg == 1)
 		return (-1);
@@ -29,7 +29,7 @@ int			result(int neg, size_t i, int res)
 	return (neg * res);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	size_t		i;
 	const char	*s;

@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 12:20:11 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/12/15 11:52:36 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/04 15:57:00 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-void				*ft_memccpy(void *dest, const void *src, int ch, 	\
+void				*ft_memccpy(void *dest, const void *src, int ch, \
 						size_t max_size);
 void				*ft_memchr(const void *block, int ch, size_t size);
 int					ft_memcmp(const void *ptr1, const void *ptr2, size_t size);
@@ -34,7 +34,7 @@ size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *st);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strnstr(const char *haystack, const char *needle, 	\
+char				*ft_strnstr(const char *haystack, const char *needle, \
 						size_t len);
 char				*ft_strrchr(const char *str, int c);
 int					ft_tolower(int c);
@@ -51,7 +51,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -64,6 +64,6 @@ void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), 	\
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 						void (*del)(void *));
 #endif

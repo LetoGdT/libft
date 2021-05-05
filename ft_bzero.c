@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:17:49 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/24 14:28:12 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:46:13 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_bzero(void *pointer, size_t count)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (count <= 0)
@@ -23,7 +23,7 @@ void	*ft_bzero(void *pointer, size_t count)
 	}
 	while (i < count)
 	{
-		((char*)pointer)[i] = 0;
+		((char *)pointer)[i] = 0;
 		i++;
 	}
 	return (pointer);

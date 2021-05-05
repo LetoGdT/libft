@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:23:00 by lgaudet-          #+#    #+#             */
-/*   Updated: 2020/11/26 15:24:01 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/05 16:29:38 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	string_size(int n)
 
 static int	ft_pow(int base, int exp)
 {
-	int res;
+	int	res;
 
 	res = base;
 	while (--exp)
@@ -37,7 +37,7 @@ static int	ft_pow(int base, int exp)
 	return (res);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	ret;
 	int		i;
