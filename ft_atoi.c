@@ -6,7 +6,7 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:40:56 by lgaudet-          #+#    #+#             */
-/*   Updated: 2021/05/05 16:46:31 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 16:16:45 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-int	result(int neg, size_t i, int res)
+int	result(int neg, long long res)
 {
-	if (i >= 19 && neg == 1)
-		return (-1);
-	if (i >= 20 && neg == -1)
-		return (0);
-	return (neg * res);
+	res *= neg;
+	if (res > INT_MAX)
+		res = INT_MAX;
+	else if (res < INT_MIN)
+		res = INT_MIN;
+	return (res);
 }
 
 int	ft_atoi(const char *str)
@@ -34,7 +35,7 @@ int	ft_atoi(const char *str)
 	size_t		i;
 	const char	*s;
 	int			neg;
-	int			res;
+	long long	res;
 
 	i = 0;
 	while (str[i] && ft_isspace(str[i]))
@@ -55,5 +56,5 @@ int	ft_atoi(const char *str)
 		res += s[i] - '0';
 		i++;
 	}
-	return (result(neg, i, res));
+	return (result(neg, res));
 }

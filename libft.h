@@ -6,13 +6,14 @@
 /*   By: lgaudet- <lgaudet-@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 12:20:11 by lgaudet-          #+#    #+#             */
-/*   Updated: 2021/05/04 15:57:00 by lgaudet-         ###   ########lyon.fr   */
+/*   Updated: 2021/05/28 15:06:49 by lgaudet-         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <limits.h>
 # include <unistd.h>
 
 int					ft_atoi(const char *str);
