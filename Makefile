@@ -51,11 +51,13 @@ BONUS	= $(BONUS_SRC:.c=.o)
 RM		= rm -f
 
 $(NAME):	$(OBJS)
-			ar rc $(NAME) $(OBJS)
-			ranlib $(NAME)
+			@echo "Packing lib"
+			@ar rc $(NAME) $(OBJS)
+			@ranlib $(NAME)
 
 %.o:		%.c $(HDRS)
-			$(CC) $(CFLAGS) -c $< $(addprefix -include , $(HDRS)) -o $(<:.c=.o)
+			@echo "Compiling $<"
+			@$(CC) $(CFLAGS) -c $< $(addprefix -include , $(HDRS)) -o $(<:.c=.o)
 
 all:		$(NAME)
 
